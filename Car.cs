@@ -5,28 +5,29 @@ namespace CarService
 {
     internal class Car
     {
-        private List<SparePart> _car;
-        private static PartProvider _provider = new PartProvider();
+        private static readonly PartProvider s_provider = new PartProvider();
+        private readonly List<SparePart> _car;
 
-        public Car()
+        internal Car()
         {
             _car = new List<SparePart>();
+
             Create();
         }
 
-        public List<SparePart> GetBrokenPart()
+        internal List<SparePart> GetBrokenPart()
         {
             List<SparePart> BrokenSparePart = _car.Where(part => part.IsIntact == false).ToList();
 
             return BrokenSparePart;
         }
 
-        public List<SparePart> GetSpareParts()
+        internal List<SparePart> GetSpareParts()
         {
             return _car.ToList();
         }
 
-        public void Repair(SparePart newPart)                                   
+        internal void Repair(SparePart newPart)                                   
         {
             for (int i =  0; i < _car.Count; i++) 
             {
@@ -43,10 +44,10 @@ namespace CarService
             int chanceIntact = 100;
             int chanceBreak = 40;
 
-            for (int i = 0; i < _provider.GetCount(); i++)
+            for (int i = 0; i < s_provider.GetCount; i++)
             {
                 bool isIntact = chanceBreak >= UserUtil.GetRandom(chanceIntact + 1) ? false : true;
-                _car.Add(new SparePart(_provider.GetCharacteristic(i).Name, isIntact));
+                _car.Add(new SparePart(s_provider.GetCharacteristic(i).Name, isIntact));
             }
         }
     }

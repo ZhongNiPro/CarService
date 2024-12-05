@@ -7,39 +7,38 @@ namespace CarService
 {
     internal class CarService
     {
-        private Storage _storage;
-        private Queue<Car> _cars;
-        private int _carQueueCount;
-        private Wallet _wallet;
-        private Form1 _form;
-        private TaskCompletionSource<bool> _buttonClickTcs;
+        private readonly Storage _storage;
+        private readonly Queue<Car> _cars;
+        private readonly int _carQueueCount;
+        private readonly Wallet _wallet;
+        private readonly CarServiceScreen _form;
+        private int _carNumber;
+        private TaskCompletionSource<bool> _buttonClickTCS;
 
-        public CarService(Form1 form)
+        internal CarService(CarServiceScreen form)
         {
             _storage = new Storage();
             _cars = new Queue<Car>();
             _carQueueCount = 10;
             _wallet = new Wallet(form);
             _form = form;
-            CarNumber = 1;
+            _carNumber = 1;
 
             _form.UpdateButtonClicked += OnUpdateButtonClicked;
 
             CreateQueue();
         }
 
-        public int CarNumber { get; set; }
-
-        public async Task WorkAsync()
+        internal async Task WorkAsync()
         {
             while (_cars.Count != 0)
             {
                 Car car = _cars.Peek();
-                bool havePartInStorage = false;
-
                 List<SparePart> brokenParts = car.GetBrokenPart().ToList();
 
-                await _form.ReceiveCarNumber(CarNumber);
+                await _form.ReceiveCarNumber(_carNumber);
+
+                bool havePartInStorage = false;
 
                 foreach (SparePart part in brokenParts)
                 {
@@ -53,7 +52,7 @@ namespace CarService
                 if (havePartInStorage == false)
                 {
                     await _form.ShowCar(car.GetSpareParts());
-                    _wallet.ReceiveFine(CarNumber, havePart: havePartInStorage);
+                    _wallet.ReceiveFine(_carNumber, havePart: havePartInStorage);
                     await WaitForButtonClickAsync();
                 }
                 else
@@ -66,7 +65,7 @@ namespace CarService
                     }
                 }
 
-                CarNumber++;
+                _carNumber++;
                 _cars.Dequeue();
             }
 
@@ -77,13 +76,13 @@ namespace CarService
 
         private Task WaitForButtonClickAsync()
         {
-            _buttonClickTcs = new TaskCompletionSource<bool>();
-            return _buttonClickTcs.Task;
+            _buttonClickTCS = new TaskCompletionSource<bool>();
+            return _buttonClickTCS.Task;
         }
 
         private void OnUpdateButtonClicked()
         {
-            _buttonClickTcs?.SetResult(true);
+            _buttonClickTCS?.SetResult(true);
         }
 
         private void CreateQueue()
@@ -109,11 +108,11 @@ namespace CarService
             {
                 SparePart newPart = _storage.UseUp(part);
                 car.Repair(newPart);
-                _wallet.ReceiveIncome(CarNumber, part);
+                _wallet.ReceiveIncome(_carNumber, part);
             }
             else
             {
-                _wallet.ReceiveFine(CarNumber, part);
+                _wallet.ReceiveFine(_carNumber, part);
             }
         }
     }

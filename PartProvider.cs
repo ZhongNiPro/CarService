@@ -4,9 +4,9 @@ namespace CarService
 {
     internal class PartProvider
     {
-        private List<PartCharacteristic> _parts;
+        private readonly List<PartCharacteristic> _parts;
 
-        public PartProvider()
+        internal PartProvider()
         {
             _parts = new List<PartCharacteristic>()
             {
@@ -20,12 +20,9 @@ namespace CarService
             };
         }
 
-        public int GetCount()
-        {
-            return _parts.Count;
-        }
+        internal int GetCount => _parts.Count;
 
-        public PartCharacteristic GetCharacteristic(int index)
+        internal PartCharacteristic GetCharacteristic(int index)
         {
             return _parts[index];
         }

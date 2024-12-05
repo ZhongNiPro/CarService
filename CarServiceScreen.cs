@@ -6,19 +6,19 @@ using System.Windows.Forms;
 
 namespace CarService
 {
-    public partial class Form1 : Form
+    public partial class CarServiceScreen : Form
     {
-        public event Action UpdateButtonClicked;
-
-        public Form1()
+        internal CarServiceScreen()
         {
             InitializeComponent();
-            buttonAction.Click += ClickButton1;
+            buttonAction.Click += ClickButtonAction;
         }
 
-        internal string GroupBox1Text { get; private set; }
+        internal string CarBoxText { get; private set; }
 
-        internal void ClickButton1(object sender, EventArgs e)
+        internal event Action UpdateButtonClicked;
+
+        internal void ClickButtonAction(object sender, EventArgs e)
         {
             buttonAction.Text = "Repair";
             UpdateButtonClicked?.Invoke();
@@ -28,8 +28,8 @@ namespace CarService
         {
             await Task.Run(() =>
             {
-                GroupBox1Text = "Car " + number;
-                UpdateUI(() => carBox.Text = GroupBox1Text);
+                CarBoxText = "Car " + number;
+                UpdateUI(() => carBox.Text = CarBoxText);
             });
         }
 
@@ -39,12 +39,12 @@ namespace CarService
             {
                 UpdateUI(() =>
                 {
-                    carBox.Controls.Clear();
-
                     int positionY = 20;
                     int positionX = 10;
                     int changePosition = 30;
-                    carBox.Text = GroupBox1Text;
+
+                    carBox.Controls.Clear();
+                    carBox.Text = CarBoxText;
 
                     if (receivedCar != null)
                     {
@@ -56,6 +56,7 @@ namespace CarService
                                 Location = new Point(positionX, positionY),
                                 Text = sparePart.Name
                             };
+
                             positionY += changePosition;
                             carBox.Controls.Add(label);
                         }
@@ -78,6 +79,7 @@ namespace CarService
                         AutoSize = true,
                         Text = message
                     };
+
                     messageBox.Controls.Add(label);
                 });
             });
@@ -97,6 +99,7 @@ namespace CarService
                         AutoSize = true,
                         Text = message
                     };
+
                     walletBox.Controls.Add(label);
                 });
             });

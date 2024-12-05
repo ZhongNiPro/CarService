@@ -70,11 +70,11 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="CarService.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="CarServiceScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CarServiceScreen.Designer.cs">
+      <DependentUpon>CarServiceScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="PartCharacteristic.cs" />
     <Compile Include="PartProvider.cs" />
@@ -84,8 +84,8 @@
     <Compile Include="Storage.cs" />
     <Compile Include="UserUtil.cs" />
     <Compile Include="Wallet.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="CarServiceScreen.resx">
+      <DependentUpon>CarServiceScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

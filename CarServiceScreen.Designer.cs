@@ -1,6 +1,6 @@
 ﻿namespace CarService
 {
-    partial class Form1
+    partial class CarServiceScreen
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -37,7 +37,7 @@
             // bAction
             // 
             this.buttonAction.Location = new System.Drawing.Point(433, 362);
-            this.buttonAction.Name = "bAction";
+            this.buttonAction.Name = "buttonAction";
             this.buttonAction.Size = new System.Drawing.Size(150, 42);
             this.buttonAction.TabIndex = 0;
             this.buttonAction.Text = "Start";

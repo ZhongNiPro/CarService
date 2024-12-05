@@ -12,8 +12,8 @@ namespace CarService
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Form1 form = new Form1();
-            var carService = new CarService(form);
+            CarServiceScreen form = new CarServiceScreen();
+            CarService carService = new CarService(form);
 
             Task.Run(async () => await carService.WorkAsync());
 
