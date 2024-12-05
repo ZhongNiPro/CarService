@@ -16,7 +16,7 @@ namespace CarService
             for (int i = 0; i < s_provider.GetCount; i++)
             {
                 bool isBreak = chanceIntact >= UserUtil.GetRandom(chanceBreak + 1);
-                spareParts.Add(new SparePart(s_provider.GetCharacteristic(i).Name, isBreak));
+                spareParts.Add(new SparePart(s_provider.GetSparePart(i).Name, isBreak));
             }
 
             return spareParts;
@@ -26,17 +26,14 @@ namespace CarService
         {
             Queue<Car> cars = new Queue<Car>();
 
-            for (int i = 0; i < carQueueCount; i++)
+            while (carQueueCount>0)
             {
                 Car car = new Car();
 
-                if (car.GetBrokenPart().Count == 0)
-                {
-                    i--;
-                }
-                else
+                if (car.GetBrokenPart().Count != 0)
                 {
                     cars.Enqueue(car);
+                    carQueueCount--;
                 }
             }
 

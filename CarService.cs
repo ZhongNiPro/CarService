@@ -14,7 +14,7 @@ namespace CarService
         private readonly CarServiceScreen _form;
         private readonly IQueue _carFactory;
         private int _carNumber;
-        private TaskCompletionSource<bool> _buttonClickTCS;
+        private TaskCompletionSource<bool> _buttonClickTaskCompletionSource;
 
         internal CarService(CarServiceScreen form)
         {
@@ -78,13 +78,13 @@ namespace CarService
 
         private Task WaitForButtonClickAsync()
         {
-            _buttonClickTCS = new TaskCompletionSource<bool>();
-            return _buttonClickTCS.Task;
+            _buttonClickTaskCompletionSource = new TaskCompletionSource<bool>();
+            return _buttonClickTaskCompletionSource.Task;
         }
 
         private void OnUpdateButtonClicked()
         {
-            _buttonClickTCS?.SetResult(true);
+            _buttonClickTaskCompletionSource?.SetResult(true);
         }
 
         private void TryRepair(Car car, SparePart part)

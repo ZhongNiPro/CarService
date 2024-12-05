@@ -5,20 +5,19 @@ namespace CarService
 {
     internal class Car
     {
+        private static readonly ICar _carFactory = new Creator();
         private readonly List<SparePart> _spareParts;
-        private readonly ICar _carFactory;
 
         internal Car()
         {
-            _carFactory = new Creator();
             _spareParts = _carFactory.CreateListSpareParts();
         }
 
         internal List<SparePart> GetBrokenPart()
         {
-            List<SparePart> BrokenSparePart = _spareParts.Where(part => part.IsBroken == false).ToList();
+            List<SparePart> brokenSparePart = _spareParts.Where(part => part.IsBroken == false).ToList();
 
-            return BrokenSparePart;
+            return brokenSparePart;
         }
 
         internal List<SparePart> GetSpareParts()

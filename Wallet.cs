@@ -27,11 +27,11 @@ namespace CarService
         {
             SparePart brokenSparePart = _price.Where(sparePart => sparePart.Name == part.Name).Single();
 
-            _amount += brokenSparePart.CostOfSparePart;
+            _amount += brokenSparePart.CostOfPurchasing;
             _amount += brokenSparePart.CostOfRepair;
 
             await _form.ShowMessage($"Was repaired {part.Name} of {carNumber} Car" +
-                 $"\ncar service receives  {brokenSparePart.CostOfSparePart} + {brokenSparePart.CostOfRepair} ");
+                 $"\ncar service receives  {brokenSparePart.CostOfPurchasing} + {brokenSparePart.CostOfRepair} ");
 
             await _form.ShowWallet(_amount.ToString());
         }
@@ -64,7 +64,7 @@ namespace CarService
         {
             for (int i = 0; i < s_partProvider.GetCount; i++)
             {
-                _price.Add(s_partProvider.GetCharacteristic(i));
+                _price.Add(s_partProvider.GetSparePart(i));
             }
         }
     }
