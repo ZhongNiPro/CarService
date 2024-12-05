@@ -8,7 +8,7 @@ namespace CarService
         private static readonly PartProvider s_partProvider = new PartProvider();
         private readonly int _penalty;
         private readonly int _fullPenalty;
-        private readonly List<PartCharacteristic> _price;
+        private readonly List<SparePart> _price;
         private readonly CarServiceScreen _form;
         private int _amount;
 
@@ -17,7 +17,7 @@ namespace CarService
             _amount = 0;
             _penalty = 200;
             _fullPenalty = 1000;
-            _price = new List<PartCharacteristic>();
+            _price = new List<SparePart>();
             _form = form;
 
             FillPrice();
@@ -25,7 +25,7 @@ namespace CarService
 
         public async void ReceiveIncome(int carNumber, SparePart part)
         {
-            PartCharacteristic brokenSparePart = _price.Where(sparePart => sparePart.Name == part.Name).Single();
+            SparePart brokenSparePart = _price.Where(sparePart => sparePart.Name == part.Name).Single();
 
             _amount += brokenSparePart.CostOfSparePart;
             _amount += brokenSparePart.CostOfRepair;

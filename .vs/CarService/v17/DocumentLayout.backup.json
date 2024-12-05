@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\elsid\\source\\repos\\CarService\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|c:\\users\\elsid\\source\\repos\\carservice\\carservicescreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|solutionrelative:carservicescreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|C:\\Users\\elsid\\source\\repos\\CarService\\carservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|solutionrelative:carservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,11 +11,15 @@
       "RelativeMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|c:\\users\\elsid\\source\\repos\\carservice\\carservicescreen.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|c:\\users\\elsid\\source\\repos\\carservice\\carservicescreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|solutionrelative:carservicescreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|C:\\Users\\elsid\\source\\repos\\CarService\\carservicescreen.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|solutionrelative:carservicescreen.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|c:\\users\\elsid\\source\\repos\\carservice\\carservicescreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|C:\\Users\\elsid\\source\\repos\\CarService\\carservicescreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9882EB1F-08F7-43B8-A407-E1A7BF3A3513}|CarService.csproj|solutionrelative:carservicescreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 252,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,26 +50,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CarService.cs",
               "DocumentMoniker": "C:\\Users\\elsid\\source\\repos\\CarService\\CarService.cs",
               "RelativeDocumentMoniker": "CarService.cs",
               "ToolTip": "C:\\Users\\elsid\\source\\repos\\CarService\\CarService.cs",
               "RelativeToolTip": "CarService.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAQwAsAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-04T20:40:17.18Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "CarServiceScreen.cs",
               "DocumentMoniker": "C:\\Users\\elsid\\source\\repos\\CarService\\CarServiceScreen.cs",
               "RelativeDocumentMoniker": "CarServiceScreen.cs",
               "ToolTip": "C:\\Users\\elsid\\source\\repos\\CarService\\CarServiceScreen.cs",
               "RelativeToolTip": "CarServiceScreen.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T14:33:26.852Z",
               "EditorCaption": ""
@@ -82,14 +82,14 @@
               "RelativeDocumentMoniker": "CarServiceScreen.Designer.cs",
               "ToolTip": "C:\\Users\\elsid\\source\\repos\\CarService\\CarServiceScreen.Designer.cs",
               "RelativeToolTip": "CarServiceScreen.Designer.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-28T14:33:16.926Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\elsid\\source\\repos\\CarService\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",

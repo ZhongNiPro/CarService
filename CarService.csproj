@@ -76,7 +76,9 @@
     <Compile Include="CarServiceScreen.Designer.cs">
       <DependentUpon>CarServiceScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="PartCharacteristic.cs" />
+    <Compile Include="Creator.cs" />
+    <Compile Include="ICar.cs" />
+    <Compile Include="IQueue.cs" />
     <Compile Include="PartProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="Wallet.cs" />
     <EmbeddedResource Include="CarServiceScreen.resx">
       <DependentUpon>CarServiceScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

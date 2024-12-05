@@ -11,7 +11,7 @@ namespace CarService
         internal CarServiceScreen()
         {
             InitializeComponent();
-            buttonAction.Click += ClickButtonAction;
+            _buttonAction.Click += ClickButtonAction;
         }
 
         internal string CarBoxText { get; private set; }
@@ -20,7 +20,7 @@ namespace CarService
 
         internal void ClickButtonAction(object sender, EventArgs e)
         {
-            buttonAction.Text = "Repair";
+            _buttonAction.Text = "Repair";
             UpdateButtonClicked?.Invoke();
         }
 
@@ -29,7 +29,7 @@ namespace CarService
             await Task.Run(() =>
             {
                 CarBoxText = "Car " + number;
-                UpdateUI(() => carBox.Text = CarBoxText);
+                UpdateUI(() => _carBox.Text = CarBoxText);
             });
         }
 
@@ -43,8 +43,8 @@ namespace CarService
                     int positionX = 10;
                     int changePosition = 30;
 
-                    carBox.Controls.Clear();
-                    carBox.Text = CarBoxText;
+                    _carBox.Controls.Clear();
+                    _carBox.Text = CarBoxText;
 
                     if (receivedCar != null)
                     {
@@ -52,13 +52,13 @@ namespace CarService
                         {
                             Label label = new Label
                             {
-                                ForeColor = sparePart.IsIntact ? Color.DarkGreen : Color.DarkRed,
+                                ForeColor = sparePart.IsBroken ? Color.DarkGreen : Color.DarkRed,
                                 Location = new Point(positionX, positionY),
                                 Text = sparePart.Name
                             };
 
                             positionY += changePosition;
-                            carBox.Controls.Add(label);
+                            _carBox.Controls.Add(label);
                         }
                     }
                 });
@@ -71,7 +71,7 @@ namespace CarService
             {
                 UpdateUI(() =>
                 {
-                    messageBox.Controls.Clear();
+                    _messageBox.Controls.Clear();
 
                     Label label = new Label
                     {
@@ -80,7 +80,7 @@ namespace CarService
                         Text = message
                     };
 
-                    messageBox.Controls.Add(label);
+                    _messageBox.Controls.Add(label);
                 });
             });
         }
@@ -91,7 +91,7 @@ namespace CarService
             {
                 UpdateUI(() =>
                 {
-                    walletBox.Controls.Clear();
+                    _walletBox.Controls.Clear();
 
                     Label label = new Label
                     {
@@ -100,7 +100,7 @@ namespace CarService
                         Text = message
                     };
 
-                    walletBox.Controls.Add(label);
+                    _walletBox.Controls.Add(label);
                 });
             });
         }

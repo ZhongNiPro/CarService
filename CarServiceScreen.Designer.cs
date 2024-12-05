@@ -1,4 +1,6 @@
-﻿namespace CarService
+﻿using System.Windows.Forms;
+
+namespace CarService
 {
     partial class CarServiceScreen
     {
@@ -28,58 +30,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAction = new System.Windows.Forms.Button();
-            this.carBox = new System.Windows.Forms.GroupBox();
-            this.messageBox = new System.Windows.Forms.GroupBox();
-            this.walletBox = new System.Windows.Forms.GroupBox();
+            this._buttonAction = new System.Windows.Forms.Button();
+            this._carBox = new System.Windows.Forms.GroupBox();
+            this._messageBox = new System.Windows.Forms.GroupBox();
+            this._walletBox = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
-            // 
-            // bAction
-            // 
-            this.buttonAction.Location = new System.Drawing.Point(433, 362);
-            this.buttonAction.Name = "buttonAction";
-            this.buttonAction.Size = new System.Drawing.Size(150, 42);
-            this.buttonAction.TabIndex = 0;
-            this.buttonAction.Text = "Start";
-            this.buttonAction.UseVisualStyleBackColor = true;
-            // 
-            // carBox
-            // 
-            this.carBox.Location = new System.Drawing.Point(12, 12);
-            this.carBox.Name = "carBox";
-            this.carBox.Size = new System.Drawing.Size(370, 404);
-            this.carBox.TabIndex = 1;
-            this.carBox.TabStop = false;
-            this.carBox.Text = "Car";
-            // 
-            // messageBox
-            // 
-            this.messageBox.Location = new System.Drawing.Point(12, 422);
-            this.messageBox.Name = "messageBox";
-            this.messageBox.Size = new System.Drawing.Size(647, 179);
-            this.messageBox.TabIndex = 2;
-            this.messageBox.TabStop = false;
-            this.messageBox.Text = "Message";
-            // 
-            // walletBox
-            // 
-            this.walletBox.Location = new System.Drawing.Point(388, 12);
-            this.walletBox.Name = "walletBox";
-            this.walletBox.Size = new System.Drawing.Size(271, 137);
-            this.walletBox.TabIndex = 3;
-            this.walletBox.TabStop = false;
-            this.walletBox.Text = "Wallet";
-            // 
-            // Form1
-            // 
+
+            this._buttonAction.Location = new System.Drawing.Point(433, 362);
+            this._buttonAction.Name = "buttonAction";
+            this._buttonAction.Size = new System.Drawing.Size(150, 42);
+            this._buttonAction.TabIndex = 0;
+            this._buttonAction.Text = "Start";
+            this._buttonAction.UseVisualStyleBackColor = true;
+
+            this._carBox.Location = new System.Drawing.Point(12, 12);
+            this._carBox.Name = "carBox";
+            this._carBox.Size = new System.Drawing.Size(370, 404);
+            this._carBox.TabIndex = 1;
+            this._carBox.TabStop = false;
+            this._carBox.Text = "Car";
+
+            this._messageBox.Location = new System.Drawing.Point(12, 422);
+            this._messageBox.Name = "messageBox";
+            this._messageBox.Size = new System.Drawing.Size(647, 179);
+            this._messageBox.TabIndex = 2;
+            this._messageBox.TabStop = false;
+            this._messageBox.Text = "Message";
+
+            this._walletBox.Location = new System.Drawing.Point(388, 12);
+            this._walletBox.Name = "walletBox";
+            this._walletBox.Size = new System.Drawing.Size(271, 137);
+            this._walletBox.TabIndex = 3;
+            this._walletBox.TabStop = false;
+            this._walletBox.Text = "Wallet";
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 613);
-            this.Controls.Add(this.walletBox);
-            this.Controls.Add(this.messageBox);
-            this.Controls.Add(this.carBox);
-            this.Controls.Add(this.buttonAction);
-            this.Name = "Form1";
+            this.Controls.Add(this._walletBox);
+            this.Controls.Add(this._messageBox);
+            this.Controls.Add(this._carBox);
+            this.Controls.Add(this._buttonAction);
+            this.Name = "CarServiceScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Car Service";
             this.ResumeLayout(false);
@@ -88,10 +80,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonAction;
-        private System.Windows.Forms.GroupBox carBox;
-        private System.Windows.Forms.GroupBox messageBox;
-        private System.Windows.Forms.GroupBox walletBox;
+        private Button _buttonAction;
+        private GroupBox _carBox;
+        private GroupBox _messageBox;
+        private GroupBox _walletBox;
     }
 }
 

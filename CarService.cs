@@ -12,6 +12,7 @@ namespace CarService
         private readonly int _carQueueCount;
         private readonly Wallet _wallet;
         private readonly CarServiceScreen _form;
+        private readonly IQueue _carFactory;
         private int _carNumber;
         private TaskCompletionSource<bool> _buttonClickTCS;
 
@@ -20,13 +21,14 @@ namespace CarService
             _storage = new Storage();
             _cars = new Queue<Car>();
             _carQueueCount = 10;
+            _carFactory = new Creator();
             _wallet = new Wallet(form);
             _form = form;
             _carNumber = 1;
 
             _form.UpdateButtonClicked += OnUpdateButtonClicked;
 
-            CreateQueue();
+            _cars = _carFactory.CreateQueue(_carQueueCount);
         }
 
         internal async Task WorkAsync()
@@ -83,23 +85,6 @@ namespace CarService
         private void OnUpdateButtonClicked()
         {
             _buttonClickTCS?.SetResult(true);
-        }
-
-        private void CreateQueue()
-        {
-            for (int i = 0; i < _carQueueCount; i++)
-            {
-                Car car = new Car();
-
-                if (car.GetBrokenPart().Count == 0)
-                {
-                    i--;
-                }
-                else
-                {
-                    _cars.Enqueue(car);
-                }
-            }
         }
 
         private void TryRepair(Car car, SparePart part)

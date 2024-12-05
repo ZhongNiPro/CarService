@@ -5,49 +5,36 @@ namespace CarService
 {
     internal class Car
     {
-        private static readonly PartProvider s_provider = new PartProvider();
-        private readonly List<SparePart> _car;
+        private readonly List<SparePart> _spareParts;
+        private readonly ICar _carFactory;
 
         internal Car()
         {
-            _car = new List<SparePart>();
-
-            Create();
+            _carFactory = new Creator();
+            _spareParts = _carFactory.Create();
         }
 
         internal List<SparePart> GetBrokenPart()
         {
-            List<SparePart> BrokenSparePart = _car.Where(part => part.IsIntact == false).ToList();
+            List<SparePart> BrokenSparePart = _spareParts.Where(part => part.IsBroken == false).ToList();
 
             return BrokenSparePart;
         }
 
         internal List<SparePart> GetSpareParts()
         {
-            return _car.ToList();
+            return _spareParts.ToList();
         }
 
-        internal void Repair(SparePart newPart)                                   
+        internal void Repair(SparePart newPart)
         {
-            for (int i =  0; i < _car.Count; i++) 
+            for (int i = 0; i < _spareParts.Count; i++)
             {
-                if (_car[i].Name == newPart.Name)
+                if (_spareParts[i].Name == newPart.Name)
                 {
-                    _car[i] = newPart;
+                    _spareParts[i] = newPart;
                     break;
                 }
-            }
-        }
-
-        private void Create()
-        {
-            int chanceIntact = 100;
-            int chanceBreak = 40;
-
-            for (int i = 0; i < s_provider.GetCount; i++)
-            {
-                bool isIntact = chanceBreak >= UserUtil.GetRandom(chanceIntact + 1) ? false : true;
-                _car.Add(new SparePart(s_provider.GetCharacteristic(i).Name, isIntact));
             }
         }
     }

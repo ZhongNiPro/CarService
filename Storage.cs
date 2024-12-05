@@ -36,7 +36,7 @@ namespace CarService
             {
                 for (int j = 0; j < UserUtil.GetRandom(_partMaxCount + 1); j++)
                 {
-                    _carParts.Add(new SparePart(s_provider.GetCharacteristic(i).Name, s_provider.GetCharacteristic(i).IsIntact));
+                    _carParts.Add(new SparePart(s_provider.GetCharacteristic(i).Name, s_provider.GetCharacteristic(i).IsBroken));
                 }
             }
         }
