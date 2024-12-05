@@ -6,7 +6,7 @@ namespace CarService
     {
         private static readonly PartProvider s_provider = new PartProvider();
 
-        public List<SparePart> Create()
+        public List<SparePart> CreateListSpareParts()
         {
             List<SparePart> spareParts = new List<SparePart>();
 

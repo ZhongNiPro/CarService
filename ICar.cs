@@ -4,6 +4,6 @@ namespace CarService
 {
     internal interface ICar
     {
-        internal List<SparePart> Create();
+        internal List<SparePart> CreateListSpareParts();
     }
 }

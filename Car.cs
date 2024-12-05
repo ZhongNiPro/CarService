@@ -11,7 +11,7 @@ namespace CarService
         internal Car()
         {
             _carFactory = new Creator();
-            _spareParts = _carFactory.Create();
+            _spareParts = _carFactory.CreateListSpareParts();
         }
 
         internal List<SparePart> GetBrokenPart()
