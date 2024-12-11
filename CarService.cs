@@ -10,9 +10,9 @@ namespace CarService
         private readonly Storage _storage;
         private readonly Queue<Car> _cars;
         private readonly int _carQueueCount;
-        private readonly Wallet _wallet;
+        private readonly Accountant _wallet;
         private readonly CarServiceScreen _form;
-        private readonly IQueue _carFactory;
+        private readonly QueueCreator _carFactory;
         private int _carNumber;
         private TaskCompletionSource<bool> _buttonClickTaskCompletionSource;
 
@@ -21,8 +21,8 @@ namespace CarService
             _storage = new Storage();
             _cars = new Queue<Car>();
             _carQueueCount = 10;
-            _carFactory = new Creator();
-            _wallet = new Wallet(form);
+            _carFactory = new QueueCreator();
+            _wallet = new Accountant(form);
             _form = form;
             _carNumber = 1;
 
@@ -33,6 +33,8 @@ namespace CarService
 
         internal async Task WorkAsync()
         {
+            _storage.AddSpareParts();
+
             while (_cars.Count != 0)
             {
                 Car car = _cars.Peek();
@@ -92,12 +94,24 @@ namespace CarService
             if (_storage.TryGetParts(part))
             {
                 SparePart newPart = _storage.UseUp(part);
-                car.Repair(newPart);
+                Repair(car, newPart);
                 _wallet.ReceiveIncome(_carNumber, part);
             }
             else
             {
                 _wallet.ReceiveFine(_carNumber, part);
+            }
+        }
+
+        internal void Repair(Car car, SparePart newPart)
+        {
+            for (int i = 0; i < car.GetSpareParts().Count; i++)
+            {
+                if (car.GetSpareParts()[i].Name == newPart.Name)
+                {
+                    car.GetSpareParts()[i] = newPart;
+                    break;
+                }
             }
         }
     }

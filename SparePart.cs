@@ -1,6 +1,6 @@
 ﻿namespace CarService
 {
-    internal class SparePart
+    internal class SparePart 
     {
         internal SparePart(string name, bool isBroken)
         {
@@ -18,5 +18,10 @@
         internal bool IsBroken { get; private set; }
         internal int CostOfPurchasing { get; private set; }
         internal int CostOfRepair { get; private set; }
+
+        public void Break()
+        {
+            IsBroken = true;
+        }
     }
 }

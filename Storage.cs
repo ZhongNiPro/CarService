@@ -5,16 +5,11 @@ namespace CarService
 {
     internal class Storage
     {
-        private static readonly PartProvider s_provider = new PartProvider();
-        private readonly List<SparePart> _carParts;
-        private readonly int _partMaxCount;
+        private List<SparePart> _carParts;
 
         internal Storage()
         {
             _carParts = new List<SparePart>();
-            _partMaxCount = 5;
-
-            Fill();
         }
 
         internal bool TryGetParts(SparePart part)
@@ -25,19 +20,19 @@ namespace CarService
         internal SparePart UseUp(SparePart part)
         {
             SparePart newPart = _carParts.First(sparePart => sparePart.Name == part.Name);
-            _carParts.Remove(newPart);  
+            _carParts.Remove(newPart);
 
             return newPart;
         }
 
-        private void Fill()
+        internal void AddSpareParts()
         {
-            for (int i = 0; i < s_provider.GetCount; i++)
+            IStorageSupplier storageSupplier = new StoragePartsSupplier();
+            List<SparePart> newSpareParts = storageSupplier.Supply().OfType<SparePart>().ToList();
+            
+            foreach (SparePart part in newSpareParts)
             {
-                for (int j = 0; j < UserUtil.GetRandom(_partMaxCount + 1); j++)
-                {
-                    _carParts.Add(new SparePart(s_provider.GetSparePart(i).Name, s_provider.GetSparePart(i).IsBroken));
-                }
+                _carParts.Add(part);
             }
         }
     }

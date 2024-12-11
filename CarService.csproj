@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
+    <Compile Include="CarProvider.cs" />
     <Compile Include="CarService.cs" />
     <Compile Include="CarServiceScreen.cs">
       <SubType>Form</SubType>
@@ -76,16 +77,21 @@
     <Compile Include="CarServiceScreen.Designer.cs">
       <DependentUpon>CarServiceScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Creator.cs" />
+    <Compile Include="IMoney.cs" />
+    <Compile Include="IPrice.cs" />
+    <Compile Include="IStorageSupplier.cs" />
+    <Compile Include="MoneyBallance.cs" />
+    <Compile Include="PriceProvider.cs" />
+    <Compile Include="StoragePartsSupplier.cs" />
     <Compile Include="ICar.cs" />
-    <Compile Include="IQueue.cs" />
+    <Compile Include="QueueCreator.cs" />
     <Compile Include="PartProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SparePart.cs" />
     <Compile Include="Storage.cs" />
     <Compile Include="UserUtil.cs" />
-    <Compile Include="Wallet.cs" />
+    <Compile Include="Accountant.cs" />
     <EmbeddedResource Include="CarServiceScreen.resx">
       <DependentUpon>CarServiceScreen.cs</DependentUpon>
       <SubType>Designer</SubType>

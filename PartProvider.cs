@@ -10,17 +10,17 @@ namespace CarService
         {
             _parts = new List<SparePart>()
             {
-            new SparePart("spark plug", false, 100, 100) ,
-            new SparePart("brake pad", false, 200, 200) ,
-            new SparePart("bumper", false, 300, 300) ,
-            new SparePart("air bag", false, 400, 400) ,
-            new SparePart("engine", false, 500, 500) ,
-            new SparePart("gearbox", false, 600, 600) ,
-            new SparePart("suspension", false, 700, 700)
+            new SparePart("Spark plug", false, 100, 100) ,
+            new SparePart("Brake pad", false, 200, 200) ,
+            new SparePart("Bumper", false, 300, 300) ,
+            new SparePart("Air bag", false, 400, 400) ,
+            new SparePart("Engine", false, 500, 500) ,
+            new SparePart("Gearbox", false, 600, 600) ,
+            new SparePart("Suspension", false, 700, 700)
             };
         }
 
-        internal int GetCount => _parts.Count;
+        internal int Count => _parts.Count;
 
         internal SparePart GetSparePart(int index)
         {

@@ -3,37 +3,35 @@ using System.Linq;
 
 namespace CarService
 {
-    internal class Wallet
+    internal class Accountant
     {
-        private static readonly PartProvider s_partProvider = new PartProvider();
         private readonly int _penalty;
         private readonly int _fullPenalty;
-        private readonly List<SparePart> _price;
+        private readonly IMoney _money;
         private readonly CarServiceScreen _form;
-        private int _amount;
 
-        public Wallet(CarServiceScreen form)
+        public Accountant(CarServiceScreen form)
         {
-            _amount = 0;
             _penalty = 200;
             _fullPenalty = 1000;
-            _price = new List<SparePart>();
             _form = form;
-
-            FillPrice();
+            _money = new MoneyBallance();
         }
 
         public async void ReceiveIncome(int carNumber, SparePart part)
         {
-            SparePart brokenSparePart = _price.Where(sparePart => sparePart.Name == part.Name).Single();
+            IPrice price = new PriceProvider();
+            List<SparePart> priceSpareParts = price.FillPrice();
 
-            _amount += brokenSparePart.CostOfPurchasing;
-            _amount += brokenSparePart.CostOfRepair;
+            SparePart brokenSparePart = priceSpareParts.Where(sparePart => sparePart.Name == part.Name).Single();
+
+            _money.Increase(brokenSparePart.CostOfPurchasing);
+            _money.Increase(brokenSparePart.CostOfRepair);
 
             await _form.ShowMessage($"Was repaired {part.Name} of {carNumber} Car" +
                  $"\ncar service receives  {brokenSparePart.CostOfPurchasing} + {brokenSparePart.CostOfRepair} ");
 
-            await _form.ShowWallet(_amount.ToString());
+            await _form.ShowWallet(_money.ReceiveAmount().ToString());
         }
 
         public async void ReceiveFine(int carNumber, SparePart part = null, bool havePart = true)
@@ -55,17 +53,9 @@ namespace CarService
                        $"\nCar service receives a fine of -{penalty}");
             }
 
-            _amount -= penalty;
+            _money.Decrease(penalty);
 
-            await _form.ShowWallet(_amount.ToString());
-        }
-
-        private void FillPrice()
-        {
-            for (int i = 0; i < s_partProvider.GetCount; i++)
-            {
-                _price.Add(s_partProvider.GetSparePart(i));
-            }
+            await _form.ShowWallet(_money.ReceiveAmount().ToString());
         }
     }
 }

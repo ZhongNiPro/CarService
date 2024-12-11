@@ -52,7 +52,7 @@ namespace CarService
                         {
                             Label label = new Label
                             {
-                                ForeColor = sparePart.IsBroken ? Color.DarkGreen : Color.DarkRed,
+                                ForeColor = sparePart.IsBroken ? Color.DarkRed : Color.DarkGreen,
                                 Location = new Point(positionX, positionY),
                                 Text = sparePart.Name
                             };
