@@ -103,7 +103,7 @@ namespace CarService
             }
         }
 
-        internal void Repair(Car car, SparePart newPart)
+        private void Repair(Car car, SparePart newPart)
         {
             for (int i = 0; i < car.GetSpareParts().Count; i++)
             {
